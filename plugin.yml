@@ -1,0 +1,14 @@
+name: Sudoku
+main: com.comze_instancelabs.sudoku.Main
+version: 1.0
+author: instancelabs
+permissions:
+  sudoku.create:
+    description: Gives access to create an arena.
+commands:
+   su:
+      description: Main command
+      usage: /sudoku
+   sudoku:
+      description: Main command
+      usage: /sudoku

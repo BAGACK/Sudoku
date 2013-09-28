@@ -68,10 +68,10 @@ public class Main extends JavaPlugin implements Listener {
 	        if (event.getClickedBlock().getType() == Material.SIGN_POST || event.getClickedBlock().getType() == Material.WALL_SIGN)
 	        {
 	            final Sign s = (Sign) event.getClickedBlock().getState();
-                if (s.getLine(0).equalsIgnoreCase("[Sudoku]") && !s.getLine(1).equalsIgnoreCase(""))
+                if (s.getLine(0).equalsIgnoreCase("§3[sudoku]") && !s.getLine(1).equalsIgnoreCase(""))
                 {
-                	sudoku = new Sudoku();
-                	arraysToBlocks(s.getLine(1), sudoku);
+                	sudoku = new Sudoku(Integer.parseInt(s.getLine(2)));
+                	arraysToBlocks(s.getLine(1), sudoku.display_()); // own display_ method, //TODO untested
                 }
 	        }
 	    }
@@ -90,14 +90,46 @@ public class Main extends JavaPlugin implements Listener {
 		Location end = c.getHighLoc();
 		
 		Location current = start;
+
 		
 		for(Integer[] i__ : f){ // each row
 			for(Integer i_ : i__){ // each item in row
 				// change block
-				w.getBlockAt(new Location(w, current.getBlockX(), current.getBlockY(), current.getBlockZ())).setType(Material.WOOL);
-				current.setX(current.getBlockX() + 1);
+				ItemStack carpet = null;
+				if(i_.equals(1)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)1);
+				}else if(i_.equals(2)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)2);
+				}else if(i_.equals(3)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)3);
+				}else if(i_.equals(4)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)4);
+				}else if(i_.equals(5)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)5);
+				}else if(i_.equals(6)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)6);
+				}else if(i_.equals(7)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)7);
+				}else if(i_.equals(8)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)8);
+				}else if(i_.equals(9)){
+					 carpet = new ItemStack( Material.CARPET, 1, (byte)9);
+				}else if(i_.equals(0)){
+					 carpet = new ItemStack( Material.AIR, 1);
+				}
 				
+				if(carpet != null){
+					Block ch = w.getBlockAt(new Location(w, current.getBlockX(), current.getBlockY(), current.getBlockZ()));
+					ch.setType(carpet.getType());
+					//ch.setData(DyeColor.RED.getData());
+					ch.setData(carpet.getData().getData());
+				}else{
+					w.getBlockAt(new Location(w, current.getBlockX(), current.getBlockY(), current.getBlockZ())).setType(Material.CARPET);
+				}
+				current.setX(current.getBlockX() + 1);
 			}
+			current = start;
+			current.setX(current.getBlockX() - 9);
 			current.setZ(current.getBlockZ() + 1);
 		}
 	}
