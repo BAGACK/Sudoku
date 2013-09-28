@@ -1,6 +1,7 @@
 package com.comze_instancelabs.sudoku;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Sudoku {
@@ -119,6 +120,11 @@ public class Sudoku {
 
 		return f;
 	}
+	
+	public ArrayList<int[]> getAnswer(){
+		ArrayList<int[]> ret = new ArrayList<int[]>(Arrays.asList(answer));
+		return ret; 
+	}
 
 	// Public method to generate a new puzzle.
 	public void generate() {
@@ -181,7 +187,7 @@ public class Sudoku {
 		shuffle();
 		copy(problem, player); // Copies problem to player.
 
-		// Chekcing for shuffled problem
+		// Checking for shuffled problem
 		copy(problem, comp);
 
 		if (!solve(0, 0, 0, comp)) {
@@ -192,7 +198,7 @@ public class Sudoku {
 		}
 	}
 
-	// Public method to get probelm value
+	// Public method to get problem value
 	public int getProblemValue(int row, int column) {
 		return problem[row][column];
 	}
@@ -248,7 +254,7 @@ public class Sudoku {
 		return true;
 	}
 
-	// Private helper method checkDuplicate; it checks if it's alrdy repeated.
+	// Private helper method checkDuplicate; it checks if it's already repeated.
 	private boolean checkDuplicate(int[] array, int index, int value) {
 		for (int i = 0; i < index; i++) {
 			if (array[i] == value) {
@@ -267,7 +273,7 @@ public class Sudoku {
 		}
 	}
 
-	// Private helper mthod genProb; it generates problem from answer sudoku.
+	// Private helper method genProb; it generates problem from answer sudoku.
 	private void genProb() {
 		int row;
 		int column;
@@ -297,7 +303,7 @@ public class Sudoku {
 			} else {
 				if (unique()) { // Case of solution is unique.
 					i++;
-				} else { // Case of soluiton is not unique.
+				} else { // Case of solution is not unique.
 					// Putting back original values.
 					problem[row][column] = removed1;
 					problem[8 - row][8 - column] = removed2;
@@ -509,7 +515,7 @@ public class Sudoku {
 
 		for (int i = 0; i < 3; i++) { // row
 			for (int j = 0; j < 3; j++) { // column
-				for (int k = i * 3; k < i * 3 + 3; k++) { // Corressponding box.
+				for (int k = i * 3; k < i * 3 + 3; k++) { // Corresponding box.
 					for (int l = j * 3; l < j * 3 + 3; l++) {
 						if (problem[k][l] == 0) {
 							ansArray[count] = answer[k][l]; // fills ansArray.

@@ -6,9 +6,7 @@ permissions:
   sudoku.create:
     description: Gives access to create an arena.
 commands:
-   su:
-      description: Main command
-      usage: /sudoku
    sudoku:
       description: Main command
-      usage: /sudoku
+      aliases: [su]     
+      usage: /<command>
