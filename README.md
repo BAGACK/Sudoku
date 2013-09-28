@@ -1,0 +1,4 @@
+Sudoku
+======
+
+A Sudoku Plugin
