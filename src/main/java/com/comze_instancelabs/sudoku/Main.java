@@ -40,7 +40,7 @@ public class Main extends JavaPlugin implements Listener {
 
 		if(cmd.getName().equalsIgnoreCase("su") || cmd.getName().equalsIgnoreCase("sudoku")){
 	 		if(args.length < 1){
-	 			sender.sendMessage("ง3/sb createsudoku [name]");
+	 			sender.sendMessage("ยง3/sb createsudoku [name]");
 	 			return true;
 	 		}else{
 	 			Player p = (Player)sender;
@@ -49,12 +49,12 @@ public class Main extends JavaPlugin implements Listener {
 	 				if(action.equalsIgnoreCase("createsudoku") && args.length > 1){
 	 					// Create arena
 	 					if(p.hasPermission("sudoku.create")){
-	 						p.sendMessage("ง3Select the two points of the 9x9 field.");
+	 						p.sendMessage("ยง3Select the two points of the 9x9 field.");
 	 						
 	 						creation.put(p, args[1]);	
 		 					p.getInventory().addItem(new ItemStack(Material.WOOD_SPADE, 1));
 		 					p.updateInventory();
-		 					p.sendMessage("ง3Rightclick first one, leftclick second one.");
+		 					p.sendMessage("ยง3Rightclick first one, leftclick second one.");
 	 					}
 	 				}
 	 			}
@@ -73,7 +73,7 @@ public class Main extends JavaPlugin implements Listener {
 	        if (event.getClickedBlock().getType() == Material.SIGN_POST || event.getClickedBlock().getType() == Material.WALL_SIGN)
 	        {
 	            final Sign s = (Sign) event.getClickedBlock().getState();
-                if (s.getLine(0).equalsIgnoreCase("ง3[sudoku]") && !s.getLine(1).equalsIgnoreCase(""))
+                if (s.getLine(0).equalsIgnoreCase("ยง3[sudoku]") && !s.getLine(1).equalsIgnoreCase(""))
                 {
                 	//generate sudoku, tp player and add to arenap hashmap
                 	String aren = s.getLine(1);
@@ -95,7 +95,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void onSignChange(SignChangeEvent event) {
 		Player p = event.getPlayer();
 		if (event.getLine(0).toLowerCase().contains("[sudoku]") && p.hasPermission("horseracing.sign")) {
-			event.setLine(0, "ง3[Sudoku]");
+			event.setLine(0, "ยง3[Sudoku]");
 		}
 	}
 	
@@ -245,7 +245,7 @@ public class Main extends JavaPlugin implements Listener {
 	            getConfig().set(arenaname + ".gs.world", p.getWorld().getName());
 	            this.saveConfig();
 	            
-		        event.getPlayer().sendMessage("ง2Point registered.");
+		        event.getPlayer().sendMessage("ยง2Point registered.");
 		        event.setCancelled(true);
            }
     	}
@@ -318,9 +318,9 @@ public class Main extends JavaPlugin implements Listener {
 			            this.saveConfig();
 			            
 			            if(getConfig().contains(arenaname + ".gs.x1")){
-			            	event.getPlayer().sendMessage("ง2Sudoku successfully registered.");
+			            	event.getPlayer().sendMessage("ยง2Sudoku successfully registered.");
 			            }else{
-			            	event.getPlayer().sendMessage("ง2First point registered. Now leftclick the other point.");
+			            	event.getPlayer().sendMessage("ยง2First point registered. Now leftclick the other point.");
 			            }
 		        }
             }
@@ -374,7 +374,7 @@ public class Main extends JavaPlugin implements Listener {
 	        				
 	        				if(current_.equals(solution_)){
 	        					//TODO TEST OUT
-	        					event.getPlayer().sendMessage("ง3You made the sudoku, congrats!");
+	        					event.getPlayer().sendMessage("ยง3You made the sudoku, congrats!");
 	        					arenap.remove(event.getPlayer());
 	        				}
 	        				

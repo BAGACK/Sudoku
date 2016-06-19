@@ -1,7 +1,7 @@
 name: Sudoku
 main: com.comze_instancelabs.sudoku.Main
 version: 1.0
-author: instancelabs
+author: [instancelabs, mepeisen]
 permissions:
   sudoku.create:
     description: Gives access to create an arena.
