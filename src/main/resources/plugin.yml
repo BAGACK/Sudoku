@@ -1,6 +1,6 @@
 name: Sudoku
 main: com.comze_instancelabs.sudoku.Main
-version: ${version}
+version: ${minigames.releaseversion}-${minigames.timestamp}
 author: [instancelabs, mepeisen]
 permissions:
   sudoku.create:
