@@ -73,7 +73,7 @@ public class Main extends JavaPlugin implements Listener {
 	        if (event.getClickedBlock().getType() == Material.SIGN_POST || event.getClickedBlock().getType() == Material.WALL_SIGN)
 	        {
 	            final Sign s = (Sign) event.getClickedBlock().getState();
-                if (s.getLine(0).equalsIgnoreCase("§3[sudoku]") && !s.getLine(1).equalsIgnoreCase(""))
+                if (s.getLine(0).toLowerCase().equalsIgnoreCase("§3[sudoku]") && !s.getLine(1).equalsIgnoreCase(""))
                 {
                 	//generate sudoku, tp player and add to arenap hashmap
                 	String aren = s.getLine(1);
@@ -94,7 +94,7 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onSignChange(SignChangeEvent event) {
 		Player p = event.getPlayer();
-		if (event.getLine(0).toLowerCase().contains("[sudoku]") && p.hasPermission("horseracing.sign")) {
+		if (event.getLine(0).toLowerCase().contains("[sudoku]") && p.hasPermission("sudoku.sign")) {
 			event.setLine(0, "§3[Sudoku]");
 		}
 	}
