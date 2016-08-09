@@ -2,7 +2,6 @@ package com.comze_instancelabs.sudoku;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -21,6 +20,8 @@ import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import com.comze_instancelabs.minigamesapi.MinigamesAPI;
 
 
 
@@ -48,7 +49,7 @@ public class Main extends JavaPlugin implements Listener {
 	 				String action = args[0];
 	 				if(action.equalsIgnoreCase("createsudoku") && args.length > 1){
 	 					// Create arena
-	 					if(p.hasPermission("sudoku.create")){
+	 					if(p.hasPermission(MinigamesAPI.getAPI().getPermissionGamePrefix("sudoku") + ".create")){
 	 						p.sendMessage("§3Select the two points of the 9x9 field.");
 	 						
 	 						creation.put(p, args[1]);	
@@ -94,7 +95,7 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onSignChange(SignChangeEvent event) {
 		Player p = event.getPlayer();
-		if (event.getLine(0).toLowerCase().contains("[sudoku]") && p.hasPermission("sudoku.sign")) {
+		if (event.getLine(0).toLowerCase().contains("[sudoku]") && p.hasPermission(MinigamesAPI.getAPI().getPermissionGamePrefix("sudoku") + ".sign")) {
 			event.setLine(0, "§3[Sudoku]");
 		}
 	}
