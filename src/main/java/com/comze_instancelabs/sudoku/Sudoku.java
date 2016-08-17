@@ -60,53 +60,17 @@ public class Sudoku {
 	}
 
 	// Public method to display player's version of sudoku.
-	public void display() {
-		for (int i = 0; i < player.length; ++i) {
-			// inserting empty line in every 3 rows.
-			if (i % 3 == 0 && i != 0) {
-				System.out.println();
-			}
-			for (int j = 0; j < player[i].length; ++j) {
-				// inserting empty space in every 3 columns.
-				if (j % 3 == 0 && j != 0) {
-					System.out.print(' ');
-				}
-				if (problem[i][j] == 0 && player[i][j] == 0) {
-					System.out.print("( )");
-				} else if (problem[i][j] == 0) {
-					System.out.print("(" + player[i][j] + ")");
-				} else {
-					System.out.print("[" + player[i][j] + "]");
-				}
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-
-	// Public method to display player's version of sudoku.
 	public ArrayList<Integer[]> display_() {
 		ArrayList<Integer[]> f = new ArrayList<Integer[]>();
 		ArrayList<Integer> row = new ArrayList<Integer>();
 		Integer[] row_;
 		for (int i = 0; i < player.length; ++i) {
-			// inserting empty line in every 3 rows.
-			if (i % 3 == 0 && i != 0) {
-				System.out.println();
-			}
 			for (int j = 0; j < player[i].length; ++j) {
-				// inserting empty space in every 3 columns.
-				/*
-				 * if (j % 3 == 0 && j != 0) { System.out.print(' '); }
-				 */
 				if (problem[i][j] == 0 && player[i][j] == 0) {
-					// System.out.print("( )");
 					row.add(0);
 				} else if (problem[i][j] == 0) {
-					//System.out.print("(" + player[i][j] + ")");
 					row.add(player[i][j]);
 				} else {
-					//System.out.print("[" + player[i][j] + "]");
 					row.add(player[i][j]);
 				}
 			}
@@ -116,7 +80,6 @@ public class Sudoku {
 			row_ = null;
 			row.clear();
 		}
-		System.out.println();
 
 		return f;
 	}
