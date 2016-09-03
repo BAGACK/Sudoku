@@ -2,6 +2,8 @@ name: MGSudoku
 main: com.comze_instancelabs.sudoku.Main
 version: ${minigames.releaseversion}-${minigames.timestamp}
 author: [instancelabs, mepeisen]
+depend: [MinigamesLib]
+loadbefore: [MinigamesLib]
 permissions:
   sudoku.create:
     description: Gives access to create an arena.
