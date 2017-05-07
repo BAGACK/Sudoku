@@ -1,4 +1,4 @@
-Sudoku [![Build Status](http://www.minigameslib.de/build.php?app=Sudoku&major=1)](http://www.minigameslib.de/buildref.php?app=Sudoku&major=1)
+Sudoku [![Build Status](http://www.minigameslib.de/build.png?app=Sudoku&major=1)](http://www.minigameslib.de/buildref.php?app=Sudoku&major=1)
 =======
 
 Sudoku game for spigot-minecraft using [MinigamesAPI](https://github.com/MysticCity/MinigamesAPI).
